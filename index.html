@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+
+<head>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.0.0/css/bootstrap-slider.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
+    <style>
+        html,body{
+            font-family:'Roboto';
+            font-size:120%;
+            background-color:#dedede;
+        }
+        ul,li{
+            list-style: none;
+        }
+        input[type="button"]{
+            display:block;
+            margin:auto;
+            width:100px;
+            height:50px;
+            color:black;
+            text-transform: uppercase;
+            
+        }
+        #ex13{
+            display:none;
+        }
+        .slider.slider-horizontal {
+    width: 700px;
+            margin-left:50px;
+        }
+        .slider.slider-horizontal .slider-tick-label-container .slider-tick-label {
+            width:155px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <h1></h1>
+    <form onsubmit="calculateIntentions()" id="form">
+              <ul>
+                <li>To you, the best part of a relationship is… 
+                    <ul>
+                         <li><input type="radio" name="one"id="otherFirst" value=3><label for="otherFirst">Putting another person first</label> </li>
+                        <li><input type="radio" name="one" id="playful" value=1><label for="playful">The Playfulness</label> </li>
+                        <li><input type="radio" name="one" id="future" value=4><label for="future">Having somebody to plan my future with</label> </li>
+                        <li><input type="radio" name="one" id="fun" value=2><label for="fun">Having someone to do fun activities with</label> </li>
+                       
+                        
+                    </ul>
+                </li>
+                <li>To you, relationships are...
+                    <ul>
+                        <li><input type="radio" name="two" id="casual" value=1><label for="casual">Casual fun, nothing too serious</label> </li>
+               
+                        <li><input type="radio" name="two" id="close" value=3><label for="close">A good way to find someone to be close with</label> </li>
+                                 <li><input type="radio" name="two" id="stress" value=2><label for="stress">A stress reliever</label> </li>
+                        <li><input type="radio" name="two" id="support" value=4><label for="support">The best support system</label> </li>
+                    </ul>
+                </li>
+                <li>What type of relationship are you looking for?
+                    <ul>
+                        <li><input type="radio" name="three" id="sex" value=1><label for="sex">Just sex</label> </li>
+                        <li><input type="radio" name="three" id="casDating" value=2><label for="casDating">Casual Dating</label> </li>
+                        <li><input type="radio" name="three" id="committed" value=3><label for="committed">Committed Relationship</label> </li>
+                        <li><input type="radio" name="three" id="longTerm" value=4><label for="longTerm">Long-term committed relationship</label> </li>
+                    </ul>
+                </li>
+                <li>What do you really think about dating?
+                    <ul>
+                        <li><input type="radio" name="four" id="spendTime" value=4><label for="spendTime">You get to have fun with someone you enjoy being around</label> </li>
+                        <li> <input type="radio" name="four" id="options" value=1><label for="options">It's a good way to meet a lot of people and keep my options open</label></li>
+                        <li><input type="radio" name="four" id="enjoy" value=3><label for="enjoy">You get to have fun with someone you enjoy being around</label> </li>
+                        
+                        <li><input type="radio" name="four" id="chore" value=2><label for="chore">If you really like someone, it can be fun but otherwise it's a chore</label> </li>
+                        
+                    </ul>
+                </li>
+                <li>When you think of exclusively dating a new person, how do you feel?
+                    <ul>
+                   
+                        <li> <input type="radio" name="five" id="scared" value=2><label for="scared">I'm not sure, it's scary but kind of exciting</label></li>
+                        <li><input type="radio" name="five" id="excited" value=3><label for="excited">Excited that I found someone speical</label> </li>
+                             <li> <input type="radio" name="five" id="sad" value=1><label for="sad">Kind of sad, it means being tied down to one person</label></li>
+                        <li><input type="radio" name="five" id="futureHolds" value=4><label for="futureHolds">Excited to see what the future holds</label> </li>
+                    </ul>
+                </li>
+             
+            </ul>
+
+
+            <li><input type="button"  onclick="calculateIntentions()"value="submit" /></li>
+
+        </form>
+    <br><br>
+    <input id="ex13" type="text" data-slider-ticks="[1,2,3,4]" data-slider-ticks-snap-bounds="0.25" data-slider-ticks-labels='["Hookups", "Casual Dating", "Serious Relationship", "Long-Term Relationship"]'/>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.0.0/bootstrap-slider.js"></script>
+    <script>
+        $( document ).ready(function() {
+     
+            
+        });
+
+    </script>
+    <script>
+        function calculateIntentions(){
+            var one = $("input[type='radio'][name='one']:checked").val();
+             var two = $("input[type='radio'][name='two']:checked").val();
+             var three = $("input[type='radio'][name='three']:checked").val();
+             var four = $("input[type='radio'][name='four']:checked").val();
+             var five = $("input[type='radio'][name='five']:checked").val();
+//        console.log(one,two,three,four,five);
+            
+            var result = (one * 0.1) + (two * 0.1) + (three * 0.5) + (four * 0.1) + (five*0.2);
+            console.log(result);
+//            var categoryCalc = function(){
+                if(result < 1.5){
+                  // hookup  
+                    console.log("hookup");
+                }
+                else if(result < 2.5){
+                    //casual date
+                    console.log("casual dating")
+                }
+                else if(result < 3.5){
+                    //serious date
+                    console.log("serious date");
+                }
+                else{
+                    //long term
+                    console.log("long term");
+                }
+//            };
+                   $("#ex13").slider({
+    ticks: [1, 2, 3, 4],
+    ticks_labels: ["Hookups", "Casual Dating", "Serious Relationship", "Long-Term Relationship"],
+    ticks_snap_bounds: 0.25,
+                       value:result
+});
+//            $("#ex13").show();
+            $("#ex13").setValue(result);
+            
+        }
+    </script>        
+
+</body>
+
+
+
+
+</html>
